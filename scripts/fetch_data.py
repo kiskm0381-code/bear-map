@@ -37,47 +37,64 @@ def geocode_address(address):
     return None, None
 
 def fetch_all_hokkaido_news():
-    """Google Newsから全道のヒグマ情報を取得する"""
-    query = urllib.parse.quote("北海道 ヒグマ 出没 OR 目撃")
-    url = NEWS_RSS_URL.format(query=query)
-    print(f"Fetching all-Hokkaido news from RSS...")
+    """複数の検索キーワードで全道のヒグマ情報を深掘りして取得する"""
+    queries = [
+        "北海道 ヒグマ 出没 OR 目撃",
+        "札幌 熊 出没",
+        "旭川 熊 出没",
+        "函館 熊 出没",
+        "釧路 熊 出没",
+        "帯広 熊 出没",
+        "北見 熊 出没",
+        "空知 熊 出没",
+        "上川 熊 出没",
+        "渡島 熊 出没"
+    ]
     
-    try:
-        response = requests.get(url, timeout=10)
-        soup = BeautifulSoup(response.content, features="xml")
-        items = soup.find_all('item')
+    all_new_items = []
+    for q_raw in queries:
+        query = urllib.parse.quote(q_raw)
+        url = NEWS_RSS_URL.format(query=query)
+        print(f"Deep fetching: {q_raw}...")
         
-        new_items = []
-        for item in items[:20]: # 直近20件を解析
-            title = item.title.text
-            link = item.link.text
-            pub_date = item.pubDate.text
+        try:
+            response = requests.get(url, timeout=10)
+            soup = BeautifulSoup(response.content, features="xml")
+            items = soup.find_all('item')
             
-            # タイトルから場所を推測（簡易パース）
-            # 例: 「札幌市南区でヒグマ目撃」 -> 札幌市南区
-            place = ""
-            if "で" in title:
-                place = title.split("で")[0].split("）")[-1].split("」")[-1]
+            for item in items: # 制限を外して全件取得
+                title = item.title.text
+                link = item.link.text
+                pub_date = item.pubDate.text
+                
+                # 地名抽出ロジック（改良版）
+                place = ""
+                if "で" in title:
+                    place = title.split("で")[0].split("）")[-1].split("」")[-1]
+                elif "）" in title:
+                    place = title.split("）")[0].split("（")[-1]
+                
+                if len(place) > 1 and len(place) < 20:
+                    lat, lng = geocode_address(place)
+                    if lat:
+                        # 地点の重複（全く同じ場所）を避けるためのキー
+                        s_id = hashlib.md5(f"{place}{title[:10]}".encode()).hexdigest()[:10]
+                        all_new_items.append({
+                            "id": s_id,
+                            "lat": lat,
+                            "lng": lng,
+                            "datetime": datetime.now().isoformat(),
+                            "address": place,
+                            "description": title,
+                            "source_name": "ニュース報道",
+                            "source_url": link,
+                            "type": "目撃/出没"
+                        })
+            time.sleep(1) # APIへの負荷軽減
+        except Exception as e:
+            print(f"Error fetching {q_raw}: {e}")
             
-            if len(place) > 2:
-                lat, lng = geocode_address(place)
-                if lat:
-                    s_id = hashlib.md5(f"{title}{pub_date}".encode()).hexdigest()[:10]
-                    new_items.append({
-                        "id": s_id,
-                        "lat": lat,
-                        "lng": lng,
-                        "datetime": datetime.now().isoformat(), # 本来はpub_dateをパース
-                        "address": place,
-                        "description": title,
-                        "source_name": "ニュース報道",
-                        "source_url": link,
-                        "type": "目撃/出没"
-                    })
-        return new_items
-    except Exception as e:
-        print(f"Error fetching news: {e}")
-        return []
+    return all_new_items
 
 def merge_data(new_sightings):
     """既存のデータとマージして保存"""

@@ -79,17 +79,19 @@
         .search-box {
             margin-top: 12px;
             pointer-events: auto;
+            width: 100%;
         }
 
         .search-box input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            width: calc(100% - 24px);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
-            border-radius: 10px;
-            padding: 8px 12px;
+            border-radius: 12px;
+            padding: 10px 12px;
             color: white;
-            font-size: 0.9rem;
+            font-size: 1rem;
             outline: none;
+            transition: all 0.2s;
         }
 
         .search-box input:focus {

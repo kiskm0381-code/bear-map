@@ -8,11 +8,11 @@
 - **概要**: フェーズ2・3の完了と実装開始
 - **詳細**: Leaflet.jsを用いたダークモード基調のUIを構築。接近アラート機能、詳細表示（ボトムシート）の実装。
 
-## 2026-05-09
-- **概要**: フェーズ4（実装）の完了と全道展開
+## 2026-05-09 (フェーズ5完了)
+- **概要**: 全道展開の自動化とWeb公開の成功
 - **詳細**:
-    - 全道179市町村対応の検索機能を追加。
-    - `fetch_data.py` による自動住所解析（ジオコーディング）エンジンを実装。
-    - ローカルサーバー起動用スクリプト `run_app.ps1` を作成。
-    - 札幌市の最新の出没実データを公式マップから正確に抽出して反映。
-- **資産パス**: `web/index.html`, `scripts/fetch_data.py`, `run_app.ps1`, `data/sightings.json`
+    - 全道179市町村対応のニュース連動型検知エンジンを実装。
+    - GitHub Actionsによる24時間自動更新パイプラインを構築。
+    - ケイスケさんの手間を排除する「一発公開ボタン（deploy_to_web.bat）」を整備。
+    - Web公開URL: [Bear Alert Hokkaido](https://kiskm0381-code.github.io/bear-map/web/index.html)
+- **資産パス**: `.github/workflows/update_data.yml`, `deploy_to_web.bat`
