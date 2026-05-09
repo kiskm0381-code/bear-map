@@ -351,12 +351,35 @@
 
         function startTracking() {
             if ("geolocation" in navigator) {
+                // 初回のみ少し待つ案内を出す
+                const banner = document.getElementById('alert-banner');
+                
                 navigator.geolocation.watchPosition(pos => {
-                    const lat = pos.coords.latitude, lng = pos.coords.longitude;
-                    if (!userMarker) userMarker = L.marker([lat, lng], { icon: L.divIcon({ className: 'user-location-marker', iconSize: [12, 12] }) }).addTo(map);
-                    else userMarker.setLatLng([lat, lng]);
+                    const lat = pos.coords.latitude;
+                    const lng = pos.coords.longitude;
+                    const accuracy = pos.coords.accuracy;
+
+                    console.log(`Current accuracy: ${accuracy}m`);
+
+                    // 精度が低すぎる（500m以上）場合は無視する（オプション）
+                    if (accuracy > 500) return;
+                    
+                    if (!userMarker) {
+                        const icon = L.divIcon({ className: 'user-location-marker', iconSize: [12, 12] });
+                        userMarker = L.marker([lat, lng], { icon }).addTo(map);
+                        // 初回取得時にのみ、ユーザーの場所へズーム（任意）
+                        // map.flyTo([lat, lng], 15);
+                    } else {
+                        userMarker.setLatLng([lat, lng]);
+                    }
                     checkAlerts(lat, lng);
-                }, null, { enableHighAccuracy: true });
+                }, (err) => {
+                    console.error("GPS Error:", err);
+                }, { 
+                    enableHighAccuracy: true, // 高精度モードを強制
+                    timeout: 10000,           // 10秒でタイムアウト
+                    maximumAge: 0             // キャッシュを使わない
+                });
             }
         }
 

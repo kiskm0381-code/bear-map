@@ -75,5 +75,27 @@
         "source_name": "札幌市ヒグマ出没情報",
         "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
         "type": "目撃"
+    },
+    {
+        "id": "87d9e95da8",
+        "lat": 43.4519831,
+        "lng": 142.8197834,
+        "datetime": "2026-05-09T23:17:07.312265",
+        "address": "北海道",
+        "description": "冬眠明けなのに…300kg「メタボヒグマ」北海道で出没 秋田では今年初の人身被害も（テレビ朝日系（ANN）） - Yahoo!ニュース",
+        "source_name": "ニュース報道",
+        "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1Gc1owVG1KcUYxUExXZ2VVRl9LVlU3ZEhEYWN0OEVWVm1jdnNad2lneTFBWDNDcktPMUNVc2NjbV8tT2k4dWxxTW9TWk56d1FiSTdyM2dEVFRXVFVacFJMUWlTdlVhSlJ0Y0NIUkFKaEhNOG01clkwR1h6SFlmM0U?oc=5",
+        "type": "目撃/出没"
+    },
+    {
+        "id": "a8a0550a4e",
+        "lat": 43.487842,
+        "lng": 141.93361,
+        "datetime": "2026-05-09T23:17:12.633547",
+        "address": "砂川市北吉野町",
+        "description": "（北海道）砂川市北吉野町でクマ出没　５月９日 - ｄメニューニュース",
+        "source_name": "ニュース報道",
+        "source_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOSExJNERjMUZuOWhLWElTcHBaSVF1Zmg2dmFLdGZ4OFJ0RWF0aE1VSXBpQXNpcGFHSXdXODlXRFYxWkREeTFBcFBxMGZLenpjN3FOWHMtQVRWYWJ2VGJLOU8yM28zeXMwNXJiQUZtUkhYbzc5OEdDUzd2T0xIUnBWeldlT05Pc0ZTVUJ6LWk3eWd2aEVqaGN1QlNMWDjSAaIBQVVfeXFMTXEzZUVHcU9Za2t5T2RhbGJtS1pUNkVLQ0ltWlV2bUlMLWt5RDMwajlOSHR2WUxDTkN2NGZPZEVLb3VMUEZmTzA2MEx5MTdhWWR4RWgzUmlZY3lMdi1uWUo2ekNIRHNqd1dwZk5FaklxY0w3Y2NOMHpqWnU0RGR0emRIbUJVMzRNV0hnVkltMFNpN2xUMTVOX3BmbDN0Y0NMOG1n?oc=5",
+        "type": "目撃/出没"
     }
 ]
