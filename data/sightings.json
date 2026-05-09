@@ -1,0 +1,79 @@
+[
+    {
+        "id": "2026-no7",
+        "lat": 42.9876,
+        "lng": 141.3864,
+        "datetime": "2026-05-07T00:00:00",
+        "address": "豊平区羊ヶ丘7番地1付近",
+        "description": "焼山頂上から北西方向へ約1.2kmの林道上にて、カメラでヒグマを確認。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "カメラ確認"
+    },
+    {
+        "id": "2026-no6",
+        "lat": 43.08327,
+        "lng": 141.26615,
+        "datetime": "2026-05-07T17:34:00",
+        "address": "西区西野290番地付近（宮丘公園内）",
+        "description": "宮丘公園の芝生広場内にて、ヒグマらしき動物を目撃。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "目撃"
+    },
+    {
+        "id": "2026-no5",
+        "lat": 42.99487,
+        "lng": 141.41006,
+        "datetime": "2026-05-03T18:18:00",
+        "address": "豊平区羊ヶ丘1番地付近（北海道農業研究センター構内）",
+        "description": "北海道農業研究センター構内にて、カメラでヒグマを確認。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "カメラ確認"
+    },
+    {
+        "id": "2026-no4",
+        "lat": 42.95797,
+        "lng": 141.36432,
+        "datetime": "2026-04-24T08:00:00",
+        "address": "南区真駒内160番地2付近",
+        "description": "札幌市駒岡清掃工場から東に約700mの澄川厚別滝連絡線上で目撃。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "目撃"
+    },
+    {
+        "id": "2026-no3",
+        "lat": 43.04276,
+        "lng": 141.2897,
+        "datetime": "2026-04-19T00:40:00",
+        "address": "中央区宮の森2条17丁目11番付近の山林内",
+        "description": "中央区宮の森の山林内にて、ヒグマを目撃。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "目撃"
+    },
+    {
+        "id": "2026-no2",
+        "lat": 43.0158,
+        "lng": 141.33562,
+        "datetime": "2026-04-18T00:00:00",
+        "address": "南区自然歩道「藻岩山ルート」",
+        "description": "市民スキー場入口から北に約400mの地点でヒグマらしき動物を目撃。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "目撃"
+    },
+    {
+        "id": "2026-no1",
+        "lat": 43.0561,
+        "lng": 141.29146,
+        "datetime": "2026-04-14T05:45:00",
+        "address": "中央区宮の森1274番地付近（自然歩道 三角山・盤渓ルート）",
+        "description": "宮の森入口から南西に約200mの林内でヒグマらしき動物を目撃。",
+        "source_name": "札幌市ヒグマ出没情報",
+        "source_url": "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/syutsubotsu/index.html",
+        "type": "目撃"
+    }
+]
